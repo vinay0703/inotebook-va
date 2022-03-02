@@ -9,6 +9,7 @@ app.get('/', (req, res)=>{
     res.send('Hello world!');
 });
 
-app.listen(port, ()=>{
-    console.log('App listening at localhost', port);
-});
+
+app.listen(port, () => {
+    console.log(`app listening at http://localhost:${port}`)
+  })
