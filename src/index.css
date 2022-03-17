@@ -2,3 +2,21 @@
   margin: 0;
   padding: 0;
 }
+
+#navbar{
+  position: sticky;
+  top:0px;
+  z-index: 1;
+}
+
+#root, body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#footer{
+  clear: both;
+  margin-top: auto;
+}
