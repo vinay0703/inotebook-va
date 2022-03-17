@@ -10,13 +10,7 @@ export default function Contact() {
           </div>
           <div className="mb-3">
             <label htmlFor="query" className="form-label">Select your query</label>
-            <select className="form-select" aria-label="Default select example">
-              <option value="none">Select below</option>
-              <option value="Web">Web</option>
-              <option value="Tech Stack">Tech stack</option>
-              <option value="Technology">Technology</option>
-              <option value="Others">Others</option>
-            </select>
+            <textarea className="form-control" id="query" cols="30" rows="1" placeholder="Enter your query here."></textarea>
           </div>
           <div className="mb-3">
             <label htmlFor="concern" className="form-label">Eloborate your concern</label>
