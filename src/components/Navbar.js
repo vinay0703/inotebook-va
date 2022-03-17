@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import LoginModal from "./LoginModal";
+import SignUpModal from "./SignUpModal";
 
 function Navbar() {
   let location = useLocation();
   useEffect(() => {}, [location]);
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <>
+    <LoginModal/>
+    <SignUpModal/>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id = "navbar">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <i className="fa fa-book"></i> inotebook-va
@@ -95,6 +100,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
+    </>
   );
 }
 
