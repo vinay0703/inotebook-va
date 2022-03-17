@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import NoteState from "./context/notes/NoteState";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           <Navbar />
           <div className="container">
             <Switch>
+              <Route path = "/contact">
+                <Contact/>
+              </Route>
               <Route path="/about">
                 <About />
               </Route>
