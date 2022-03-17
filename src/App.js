@@ -6,6 +6,7 @@ import About from "./components/About";
 import NoteState from "./context/notes/NoteState";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import HomeAfterLogin from "./components/HomeAfterLogin";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
                 <About />
               </Route>
               <Route exact path="/">
-                <HomeBeforeLogin />
+                {/* <HomeBeforeLogin /> */}
+                <HomeAfterLogin/>
               </Route>
             </Switch>
           </div>
