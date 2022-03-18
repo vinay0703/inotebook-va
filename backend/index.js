@@ -1,10 +1,13 @@
 const connectToMongo = require('./db');
 const express = require('express');
+const cors = require('cors');
 
 connectToMongo();
 const app = express();
 const port = 5000;
 
+//To avoid cors error while fetch
+app.use(cors());
 //To use req.body you need to use this middleware
 app.use(express.json());
 
