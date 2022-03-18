@@ -1,15 +1,12 @@
-import React, { useContext } from 'react';
-import noteContext from '../context/notes/noteContext';
+import Notes from './Notes';
 
 function HomeAfterLogin() {
-    const context = useContext(noteContext);
-    const {notes, setNotes} = context;
     return (
     <>
     <div className="container my-3">
         <div className="my-3">
             <form>
-                <h1>Fill in the details</h1> 
+                <h1>Add a note</h1> 
                 <div className="card">
                     <div className="card-body input-group">
                         <span className="input-group-text">Title</span>
@@ -28,15 +25,7 @@ function HomeAfterLogin() {
             </form>
         </div>
         <br />
-        <div className="my-3">
-            <h1>Your Notes</h1> 
-            <hr/> 
-            <div id="notes" className="row container-fluid">
-                {notes.map((note)=>{
-                    return note.title;
-                })}
-            </div>
-        </div> 
+        <Notes/>
     </div> 
     </>
     )
