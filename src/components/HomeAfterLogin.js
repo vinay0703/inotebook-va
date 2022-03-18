@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import noteContext from '../context/notes/noteContext';
 
 function HomeAfterLogin() {
-  return (
+    const context = useContext(noteContext);
+    const {notes, setNotes} = context;
+    return (
     <>
     <div className="container my-3">
         <div className="my-3">
@@ -28,11 +31,15 @@ function HomeAfterLogin() {
         <div className="my-3">
             <h1>Your Notes</h1> 
             <hr/> 
-            <div id="notes" className="row container-fluid"> </div>
+            <div id="notes" className="row container-fluid">
+                {notes.map((note)=>{
+                    return note.title;
+                })}
+            </div>
         </div> 
     </div> 
     </>
-  )
+    )
 }
 
 export default HomeAfterLogin;
