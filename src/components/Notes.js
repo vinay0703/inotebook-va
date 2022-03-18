@@ -14,7 +14,7 @@ function Notes() {
         <hr/> 
         <div id="notes" className="d-flex justify-content-center align-content-center row container-fluid">
             {notes.map((note)=>{
-                return <NoteItem title={note.title} description={note.description} tag={note.tag} key={note._id} id={note._id}/>
+                return <NoteItem note={note} key={note._id} />
             })}
         </div>
     </div> 
