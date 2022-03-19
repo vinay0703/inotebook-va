@@ -1,11 +1,8 @@
 import React from 'react'
 
-export default function UpdateNoteModal(props) {
-    const {note, setNote} = props;
-    const onChange = (e) => {
-        //... is spread operator
-        // Values in note are remained and additional properties are added.
-        setNote({...note, [e.target.name]: e.target.value});
+export default function UpdateNoteModal() {
+    const onChange = () => {
+
     }
     const handleClick = (e) => {
         e.preventDefault();
@@ -25,15 +22,15 @@ export default function UpdateNoteModal(props) {
                                 <div className="card">
                                     <div className="card-body input-group">
                                         <span className="input-group-text">Title</span>
-                                        <textarea type="text" className="form-control" aria-label="utitle" id="utitle" name="utitle" value = {note.utitle} placeholder="Enter your note title here." rows={1} onChange={onChange}></textarea>
+                                        <textarea type="text" className="form-control" aria-label="updateTitle" id="updateTitle" name="updateTitle" placeholder="Enter your note title here." rows={1} onChange={onChange}></textarea>
                                     </div>
                                     <div className="card-body input-group">
                                         <span className="input-group-text">Description</span>
-                                        <textarea type="text" className="form-control" aria-label="udescription" id="udescription" name="udescription" value={note.udescription} placeholder="Enter your note description here." rows={5} onChange={onChange}></textarea>
+                                        <textarea type="text" className="form-control" aria-label="UpdateDescription" id="UpdateDescription" name="UpdateDescription" placeholder="Enter your note description here." rows={5} onChange={onChange}></textarea>
                                     </div>
                                     <div className="card-body input-group">
                                         <span className="input-group-text">Tag</span>
-                                        <textarea type="text" className="form-control" aria-label="utag" id="utag" name="utag" value={note.utag} placeholder="Enter your note tag here." rows={1} onChange={onChange}></textarea>
+                                        <textarea type="text" className="form-control" aria-label="UpdateTag" id="UpdateTag" name="UpdateTag" placeholder="Enter your note tag here." rows={1} onChange={onChange}></textarea>
                                     </div>
                                 </div>
                             </div>

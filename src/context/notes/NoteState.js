@@ -76,7 +76,7 @@ const NoteState = (props)=>{
     }
 
     //Edit a Note
-    const updateNote = async(id, title, description, tag)=>{
+    const editNote = async(id, title, description, tag)=>{
       //API call
       const url = `${host}/api/notes/updatenote/${id}`;
       const response = await fetch(url, {
@@ -101,7 +101,7 @@ const NoteState = (props)=>{
       }
     }
     return(
-        <noteContext.Provider value = {{notes:notes, addNote:addNote, deleteNote:deleteNote, updateNote:updateNote, getNotes:getNotes}}>
+        <noteContext.Provider value = {{notes:notes, addNote:addNote, deleteNote:deleteNote, editNote:editNote, getNotes:getNotes}}>
             {props.children}
         </noteContext.Provider>
     ); 

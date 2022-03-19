@@ -10,7 +10,6 @@ const AddNote = () => {
         addNote(note.title, note.description, note.tag);
         //Reset form after adding a note
         document.getElementById("addNoteForm").reset();
-        setNote({title:"", description:"", tag:""});
     }
     const onChange = (e)=>{
         //... is spread operator
