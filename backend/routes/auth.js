@@ -69,14 +69,15 @@ router.post('/login',[
     const {email, password} = req.body;
     try{
         let user = await User.findOne({email});
+        let success = false;
         if(!user){
-            return res.status(400).json({error:"Please login with correct credentials."});
+            return res.status(400).json({success, error:"Please login with correct credentials."});
         }
 
         //comparing password using bcrypt.js
         const passwordCompare = await bcrypt.compare(password, user.password);
         if(!passwordCompare){
-            return res.status(400).json({error:"Please login with correct credentials."});
+            return res.status(400).json({success, error:"Please login with correct credentials."});
         }
 
         //If password is correct then we send user payload(data)
@@ -86,7 +87,8 @@ router.post('/login',[
             }
         }
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json(authToken);
+        success = true;
+        res.json({success, authToken});
 
     }catch(error){
         console.error(error.message);
