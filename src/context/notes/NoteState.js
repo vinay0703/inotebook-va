@@ -15,7 +15,7 @@ const NoteState = (props)=>{
         headers: {
           'Content-Type': 'application/json',
           //Todo
-          'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIzMGE5MWM3MjA4ZDMxNTViYzg4MTQ5In0sImlhdCI6MTY0NzM2MTEyNn0.ytjdWHlTjVCdV2FHTKXgmu8y2UrHWRT5Gy8RSYf3-N4'
+          'auth-token':localStorage.getItem('token')
         }
       });
       const json = await response.json();
@@ -31,7 +31,7 @@ const NoteState = (props)=>{
         headers: {
           'Content-Type': 'application/json',
           //Todo
-          'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIzMGE5MWM3MjA4ZDMxNTViYzg4MTQ5In0sImlhdCI6MTY0NzM2MTEyNn0.ytjdWHlTjVCdV2FHTKXgmu8y2UrHWRT5Gy8RSYf3-N4'
+          'auth-token':localStorage.getItem('token')
         },
         body: JSON.stringify({title, description, tag})
       });
@@ -56,11 +56,11 @@ const NoteState = (props)=>{
         headers: {
           'Content-Type': 'application/json',
           //Todo
-          'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIzMGE5MWM3MjA4ZDMxNTViYzg4MTQ5In0sImlhdCI6MTY0NzM2MTEyNn0.ytjdWHlTjVCdV2FHTKXgmu8y2UrHWRT5Gy8RSYf3-N4'
+          'auth-token':localStorage.getItem('token')
         },
       });
       const json = await response.json();
-      //console.log(json);
+      console.log(json);
 
       const newNotes = notes.filter((note)=>{return note._id!==id});
       setNotes(newNotes);
@@ -75,12 +75,12 @@ const NoteState = (props)=>{
         headers: {
           'Content-Type': 'application/json',
           //Todo
-          'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIzMGE5MWM3MjA4ZDMxNTViYzg4MTQ5In0sImlhdCI6MTY0NzM2MTEyNn0.ytjdWHlTjVCdV2FHTKXgmu8y2UrHWRT5Gy8RSYf3-N4'
+          'auth-token':localStorage.getItem('token')
         },
         body: JSON.stringify({title, description, tag})
       });
       const json = await response.json();
-      //console.log(json);
+      console.log(json);
       
       //creating a deep copy
       let newNotes = JSON.parse(JSON.stringify(notes));

@@ -1,12 +1,21 @@
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 
 function Navbar(props) {
+  let history = useHistory();
   const {showAlert} = props;
   let location = useLocation();
   useEffect(() => {}, [location]);
+  const handleLogOut = ()=>{
+    //remove the token in local storage
+    localStorage.removeItem('token');
+    //after logout redirect to home page
+    history.push('/');
+    //display message after logged out
+    showAlert("Logged out successfully", "success");
+  }
   return (
     <>
     <LoginModal showAlert={showAlert}/>
@@ -32,10 +41,10 @@ function Navbar(props) {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  location.pathname === "/" ? "active" : ""
+                  location.pathname === (!localStorage.getItem('token')?"/":"notes") ? "active" : ""
                 }`}
                 aria-current="page"
-                to="/"
+                to={!localStorage.getItem('token')?"/":"notes"}
               >
                 Home
               </Link>
@@ -57,7 +66,7 @@ function Navbar(props) {
                 Contact us
               </Link>
             </li>
-            <li className="nav-item dropdown">
+            {!localStorage.getItem('token') && <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle" 
                 to="/"
@@ -88,16 +97,16 @@ function Navbar(props) {
                   </button>
                 </li>
               </ul>
-            </li>
+            </li>}
           </ul>
-          <form className="d-flex">
+          {localStorage.getItem('token')?<><form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-          </form>
+          </form><button className="btn btn-light" onClick={handleLogOut}>Log out</button></>:<></>}
         </div>
       </div>
     </nav>
