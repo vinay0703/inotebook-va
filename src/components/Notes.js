@@ -28,6 +28,8 @@ function Notes() {
     <div className="my-3">
         <h1>Your notes</h1> 
         <hr/> 
+        {/* If there are no notes to display */}
+        {notes.length === 0 && "There are no notes to display :("}
         <div id="notes" className="d-flex justify-content-center align-content-center row container-fluid">
             {notes.map((note)=>{
                 return <NoteItem note={note} updateNote={updateNote} key={note._id} />
