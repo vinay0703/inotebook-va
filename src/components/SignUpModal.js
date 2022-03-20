@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
-export default function SignUpModal() {
+export default function SignUpModal(props) {
+  const {showAlert} = props;
   //minimum length of password
   const minimumLength = 5;
   //state for credentials
@@ -48,9 +49,21 @@ export default function SignUpModal() {
       //If signUp is successful, then save the token and redirect
       localStorage.setItem('token', json.authtoken);
       history.push("/notes");
+      showAlert("Account created successfully", "success");
     }
     else{
-      console.log("Invalid credentials");
+      //If any of the validation fails, user should resolve the first error
+      if(json.errors !== undefined){
+        showAlert(json.errors[0].msg, "danger");
+      }
+      //If user with email already exits
+      else if(json.error !== undefined){
+        showAlert(json.error, "danger");
+      }
+      //If any other error, show invalid credentials
+      else{
+        showAlert("Invalid credentials", "danger");
+      }
     }
     //close the form after submitting
     ref.current.click();
