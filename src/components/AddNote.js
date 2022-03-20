@@ -2,6 +2,9 @@ import React, {useContext, useState} from 'react';
 import noteContext from '../context/notes/noteContext';
 
 const AddNote = () => {
+    //Title and description should be min length 5
+    const minimumLength = 5;
+
     const context = useContext(noteContext);
     const {addNote} = context;
     const [note, setNote] = useState({title:"", description:"", tag:""});
@@ -23,17 +26,17 @@ const AddNote = () => {
             <div className="card">
                 <div className="card-body input-group">
                     <span className="input-group-text">Title</span>
-                    <textarea type="text" className="form-control" aria-label="title" id="title" name="title" placeholder="Enter your note title here." rows={1} onChange={onChange}></textarea>
+                    <textarea type="text" className="form-control" aria-label="title" id="title" name="title" placeholder="Enter your note title here." rows={1} onChange={onChange} minLength={minimumLength} required></textarea>
                 </div>
                 <div className="card-body input-group">
                     <span className="input-group-text">Description</span>
-                    <textarea type="text" className="form-control" aria-label="description" id="description" name="description" placeholder="Enter your note description here." rows={5} onChange={onChange}></textarea>
+                    <textarea type="text" className="form-control" aria-label="description" id="description" name="description" placeholder="Enter your note description here." rows={minimumLength} onChange={onChange} minLength={minimumLength} required></textarea>
                 </div> 
                 <div className="card-body input-group">
                     <span className="input-group-text">Tag</span>
                     <textarea type="text" className="form-control" aria-label="tag" id="tag" name="tag" placeholder="Enter your note tag here." rows={1} onChange={onChange}></textarea>
                 </div> 
-                <div className="card-body"><button type="submit" className="my-2 btn btn-primary" id="addBtn" onClick={handleClick}>Add Note</button></div>
+                <div className="card-body"><button disabled={note.description.length < minimumLength || note.title.length < minimumLength} type="submit" className="my-2 btn btn-primary" id="addBtn" onClick={handleClick}>Add Note</button></div>
             </div> 
         </form>
     </div>
