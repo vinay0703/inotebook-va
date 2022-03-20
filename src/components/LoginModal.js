@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function LoginModal() {
+export default function LoginModal(props) {
+  const {showAlert} = props;
   //state for credentials
   const [credentials, setCredentials] = useState({email:"", password:""});
   const ref = useRef(null);
@@ -31,9 +32,12 @@ export default function LoginModal() {
       // If login is valid, then save the auth-token and redirect.
       localStorage.setItem('token', json.authToken);
       history.push("/notes");
+      //If everything goes fine, then display alert
+      showAlert("Logged in successfully.", "success");
     }
     else{
-      console.log("Invalid credentials");
+      //If user enter wrong credentials, then display alert
+      showAlert("Invalid credentials", "danger");
     }
     //close the form after submitting
     ref.current.click();
