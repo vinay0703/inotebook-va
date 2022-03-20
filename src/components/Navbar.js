@@ -3,13 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 
-function Navbar() {
+function Navbar(props) {
+  const {showAlert} = props;
   let location = useLocation();
   useEffect(() => {}, [location]);
   return (
     <>
-    <LoginModal/>
-    <SignUpModal/>
+    <LoginModal showAlert={showAlert}/>
+    <SignUpModal showAlert={showAlert}/>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id = "navbar">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">

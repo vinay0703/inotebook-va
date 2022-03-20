@@ -4,7 +4,8 @@ import AddNote from './AddNote';
 import NoteItem from './NoteItem';
 import UpdateNoteModal from './UpdateNoteModal';
 
-function Notes() {
+function Notes(props) {
+    const {showAlert} = props;
     //state for update note with initial values of note
     const [note, setNote] = useState({id:"", utitle:"", udescription:"", utag:""});
     const context = useContext(noteContext);
@@ -21,10 +22,10 @@ function Notes() {
     const ref = useRef(null);
     return (
     <>
-    <AddNote/>
+    <AddNote showAlert={showAlert}/>
     {/* Just a programable button and it's not visible. Functionality is to launch UpdateNoteModal */}
     <button ref={ref} type="button" className="d-none" data-bs-toggle="modal" data-bs-target="#updateNoteModal"></button>
-    <UpdateNoteModal note={note} setNote={setNote}/>
+    <UpdateNoteModal note={note} setNote={setNote} showAlert={showAlert}/>
     <div className="my-3">
         <h1>Your notes</h1> 
         <hr/> 
@@ -32,7 +33,7 @@ function Notes() {
         {notes.length === 0 && "There are no notes to display :("}
         <div id="notes" className="d-flex justify-content-center align-content-center row container-fluid">
             {notes.map((note)=>{
-                return <NoteItem note={note} updateNote={updateNote} key={note._id} />
+                return <NoteItem note={note} updateNote={updateNote} showAlert={showAlert} key={note._id} />
             })}
         </div>
     </div> 

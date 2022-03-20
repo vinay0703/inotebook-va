@@ -1,10 +1,10 @@
 import Notes from './Notes';
 
-function HomeAfterLogin() {
+function HomeAfterLogin(props) {
     return (
     <>
     <div className="container my-3">
-        <Notes/>
+        <Notes showAlert={props.showAlert}/>
     </div> 
     </>
     )

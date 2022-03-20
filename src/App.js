@@ -22,7 +22,7 @@ function App() {
     <>
       <NoteState>
         <Router>
-          <Navbar />
+          <Navbar showAlert={showAlert}/>
           <Alert alert={alert}/>
           <div className="container">
             <Switch>
@@ -33,7 +33,7 @@ function App() {
                 <About />
               </Route>
               <Route exact path="/notes">
-                <HomeAfterLogin/>
+                <HomeAfterLogin showAlert={showAlert}/>
               </Route>
               <Route exact path="/">
                 <HomeBeforeLogin />
