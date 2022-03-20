@@ -6,7 +6,7 @@ import UpdateNoteModal from './UpdateNoteModal';
 
 function Notes() {
     //state for update note with initial values of note
-    const [note, setNote] = useState({utitle:"", udescription:"", utag:""});
+    const [note, setNote] = useState({id:"", utitle:"", udescription:"", utag:""});
     const context = useContext(noteContext);
     const {notes, getNotes} = context;
     useEffect(()=>{
@@ -16,7 +16,7 @@ function Notes() {
     const updateNote = (currentNote)=>{
         ref.current.click();
         //sets the values as current note
-        setNote({utitle:currentNote.title, udescription:currentNote.description, utag:currentNote.tag});
+        setNote({id:currentNote._id, utitle:currentNote.title, udescription:currentNote.description, utag:currentNote.tag});
     }
     const ref = useRef(null);
     return (
