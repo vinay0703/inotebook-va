@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {useRef, useContext} from 'react';
+import noteContext from '../context/notes/noteContext';
 
 export default function UpdateNoteModal(props) {
+    //Importing note, setNote states from Notes.js
     const {note, setNote} = props;
+    //refClose to close the modal on clicking update button.
+    const refClose = useRef(null);
+    //importing updateNote function from noteContext
+    const context = useContext(noteContext);
+    const {updateNote} = context;
+    //on change function for textareas in updateNoteModal
     const onChange = (e) => {
         //... is spread operator
         // Values in note are remained and additional properties are added.
         setNote({...note, [e.target.name]: e.target.value});
     }
+    //handleClick function for updateBtn
     const handleClick = (e) => {
         e.preventDefault();
+        updateNote(note.id, note.utitle, note.udescription, note.utag);
+        refClose.current.click();
     }
     return (
         <>
@@ -39,7 +50,7 @@ export default function UpdateNoteModal(props) {
                             </div>
                             <div className="modal-footer">
                                 <button type="submit" className="my-2 btn btn-primary" id="updateBtn" onClick={handleClick} >Update Note</button>
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button ref = {refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </form>
