@@ -35,18 +35,7 @@ const NoteState = (props)=>{
         },
         body: JSON.stringify({title, description, tag})
       });
-      const json = await response.json();
-      console.log(json);
-
-      const note = {
-        "_id": "6230c07ea2353653f3ab199d",
-        "user": "6230a91c7208d3155bc88149",
-        "title": title,
-        "description": description,
-        "tag": tag,
-        "date": "2022-03-15T16:36:14.163Z",
-        "__v": 0
-      };
+      const note = await response.json();
       //Used concat instead of push bcz concat returns an array whereas push updates an array.
       setNotes(notes.concat(note));
     }
@@ -71,7 +60,7 @@ const NoteState = (props)=>{
         },
       });
       const json = await response.json();
-      console.log(json);
+      //console.log(json);
 
       const newNotes = notes.filter((note)=>{return note._id!==id});
       setNotes(newNotes);
@@ -91,7 +80,7 @@ const NoteState = (props)=>{
         body: JSON.stringify({title, description, tag})
       });
       const json = await response.json();
-      console.log(json);
+      //console.log(json);
       
       //creating a deep copy
       let newNotes = JSON.parse(JSON.stringify(notes));
