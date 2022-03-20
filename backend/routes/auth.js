@@ -13,10 +13,11 @@ router.post('/createuser', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be min of length 5').isLength({min:5}),
 ], async (req, res)=>{
+    let success = false;
     //If there are errors return Bad request and the errors
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        return res.status(400).json({errors:errors.array()});
+        return res.status(400).json({success, errors:errors.array()});
     }
 
     try {
@@ -24,7 +25,7 @@ router.post('/createuser', [
         //Check whether the email already exits.
         let user = await User.findOne({email: req.body.email});
         if(user){
-            return res.status(400).json({error: 'Sorry a user with this mail already exits'});
+            return res.status(400).json({success, error: 'Sorry a user with this mail already exits'});
         }
 
         //Creating a salt
@@ -46,7 +47,8 @@ router.post('/createuser', [
 
         //Using a jwt so that each user gets his appropriate token
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json(authToken);
+        success = true;
+        res.json({success, authToken});
 
     } catch (error) {
         console.error(error.message);
