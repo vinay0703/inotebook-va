@@ -32,9 +32,11 @@ function App() {
               <Route path="/about">
                 <About />
               </Route>
-              <Route exact path="/">
-                {/* <HomeBeforeLogin /> */}
+              <Route exact path="/notes">
                 <HomeAfterLogin/>
+              </Route>
+              <Route exact path="/">
+                <HomeBeforeLogin />
               </Route>
             </Switch>
           </div>
