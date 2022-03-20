@@ -2,6 +2,8 @@ import React, {useRef, useContext} from 'react';
 import noteContext from '../context/notes/noteContext';
 
 export default function UpdateNoteModal(props) {
+    //Title and description should be min length 5
+    const minimumLength = 5;
     //Importing note, setNote states from Notes.js
     const {note, setNote} = props;
     //refClose to close the modal on clicking update button.
@@ -49,7 +51,7 @@ export default function UpdateNoteModal(props) {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="submit" className="my-2 btn btn-primary" id="updateBtn" onClick={handleClick} >Update Note</button>
+                                <button disabled={note.udescription.length < minimumLength || note.utitle.length < minimumLength} type="submit" className="my-2 btn btn-primary" id="updateBtn" onClick={handleClick} >Update Note</button>
                                 <button ref = {refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
