@@ -6,8 +6,9 @@ export default function LoginModal(props) {
   //state for credentials
   const [credentials, setCredentials] = useState({email:"", password:""});
   const ref = useRef(null);
-  const host = "http://localhost:5000";
+  const host = process.env.REACT_APP_HOST;
   const history = useHistory();
+  console.log("Host from loginModal", host);
 
   //onChange for user credential values
   const onChange = (e)=>{

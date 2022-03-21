@@ -8,7 +8,7 @@ export default function Contact(props) {
   //handle click for onSubmit form
   const handleClick = async(e)=>{
     e.preventDefault();
-    const host = "http://localhost:5000";
+    const host = process.env.REACT_APP_HOST;
     const url = `${host}/api/contact/contactform`;
     const response = await fetch(url, {
       method: 'POST',

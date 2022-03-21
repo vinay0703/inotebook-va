@@ -8,7 +8,7 @@ export default function SignUpModal(props) {
   //state for credentials
   const [credentials, setCredentials] = useState({name:"", email:"", password:""});
   const ref = useRef(null);
-  const host = "http://localhost:5000";
+  const host = process.env.REACT_APP_HOST;
   const history = useHistory();
   //function to check if password and confirm password are same.
   var check = function () {
