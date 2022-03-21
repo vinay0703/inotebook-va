@@ -70,7 +70,6 @@ export default function LoginModal(props) {
               </div>
               <div className="modal-footer">
                 <button type="submit" className="btn btn-primary">Login</button>
-                <button type="reset" className="btn btn-primary mx-2">Reset Form</button>
                 <button ref={ref} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
