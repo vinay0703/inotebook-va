@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="bg-dark" style={{ color: "white"}} id = "footer">
             <footer className="d-flex flex-wrap justify-content-around align-items-center py-3 mx-5 footer">
                 <div className="col-md-4 d-flex align-items-center">
-                <span className="text-muted"><h5>&copy; inotebook-va</h5></span>
+                <span className="text-muted"><h5>&copy; va</h5></span>
                 </div>
                 <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
                 <li className="ms-3"><a className="text-muted" rel="noopener noreferrer" href="https://twitter.com/AVINAY18181818" target={'_blank'}><i className="fab fa-twitter fa-lg"></i></a></li>
