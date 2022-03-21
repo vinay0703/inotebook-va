@@ -8,7 +8,6 @@ export default function LoginModal(props) {
   const ref = useRef(null);
   const host = process.env.REACT_APP_HOST;
   const history = useHistory();
-  console.log("Host from loginModal", host);
 
   //onChange for user credential values
   const onChange = (e)=>{
