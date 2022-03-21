@@ -74,6 +74,8 @@ export default function SignUpModal(props) {
 
   
   const onChange = (e)=>{
+    //... is spread operator
+    // Values in credentials are remained and additional properties are added.
     setCredentials({...credentials, [e.target.name]:e.target.value});
   }
   return (
