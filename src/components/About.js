@@ -3,6 +3,7 @@ import AboutItem from './AboutItem'
 import image1 from './images/image1.jpg';
 import image2 from './images/image2.jpg';
 import image3 from './images/image3.jpg';
+import image4 from './images/image4.jpg';
 
 export default function About() {
   return (
@@ -13,6 +14,8 @@ export default function About() {
       <AboutItem contentOrder={2} imgOrder={1} imgSource={image2} firstHeading="It all started with inotebook-va idea." mutedText="We started in 2022." content="inotebook-va is a free open-source web application which was developed by Vinay Araveti."/>
       <hr />
       <AboutItem imgSource={image3} firstHeading="Start taking notes." content="Login to your account. Enter title, description, tag and click on add note button to add your notes. You can update or delete your note at any time."/>
+      <hr />
+      <AboutItem contentOrder={2} imgOrder={1} imgSource={image4} mutedText="Only you can access your account." firstHeading="Don't worry your account is hack free." content="We used JWT authentication (HMAC Algorithm) with salt and pepper to add extra security level for your account."/>
     </div>
   )
 }
