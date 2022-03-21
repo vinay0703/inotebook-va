@@ -27,7 +27,7 @@ function App() {
           <div className="container">
             <Switch>
               <Route path = "/contact">
-                <Contact/>
+                <Contact showAlert={showAlert}/>
               </Route>
               <Route path="/about">
                 <About />
