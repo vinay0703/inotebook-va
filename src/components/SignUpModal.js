@@ -33,6 +33,8 @@ export default function SignUpModal(props) {
   //handleClick for form submission
   const handleClick = async(e)=>{
     e.preventDefault();
+    //The modal will be closed after submitting (written before fetch inorder to avoid delay)
+    ref.current.click();
     if(!check()){
       return;
     }
@@ -65,8 +67,6 @@ export default function SignUpModal(props) {
         showAlert("Invalid credentials", "danger");
       }
     }
-    //close the form after submitting
-    ref.current.click();
     //clear the form after submitting
     document.getElementById("signUpForm").reset();
     setCredentials({name:"", email:"", password:""});

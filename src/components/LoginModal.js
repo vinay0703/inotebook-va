@@ -19,6 +19,8 @@ export default function LoginModal(props) {
   //handleClick for form submission
   const handleClick = async(e)=>{
     e.preventDefault();
+    //The modal will be closed after submitting (written before fetch inorder to avoid delay)
+    ref.current.click();
     const url = `${host}/api/auth/login`;
     const response = await fetch(url, {
       method: 'POST',
@@ -39,8 +41,6 @@ export default function LoginModal(props) {
       //If user enter wrong credentials, then display alert
       showAlert("Invalid credentials", "danger");
     }
-    //close the form after submitting
-    ref.current.click();
     //clear the form after submitting
     document.getElementById('loginForm').reset();
     setCredentials({email:"", password:""});
