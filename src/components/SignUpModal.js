@@ -47,7 +47,7 @@ export default function SignUpModal(props) {
     const json = await response.json();
     if(json.success){
       //If signUp is successful, then save the token and redirect
-      localStorage.setItem('token', json.authtoken);
+      localStorage.setItem('token', json.authToken);
       history.push("/notes");
       showAlert("Account created successfully", "success");
     }
