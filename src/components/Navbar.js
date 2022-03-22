@@ -22,9 +22,9 @@ function Navbar(props) {
     <SignUpModal showAlert={showAlert}/>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id = "navbar">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <div className="navbar-brand">
           <i className="fa fa-book"></i> inotebook-va
-        </Link>
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -46,7 +46,7 @@ function Navbar(props) {
                 aria-current="page"
                 to={!localStorage.getItem('token')?"/":"notes"}
               >
-                Home
+                NewHome
               </Link>
             </li>
             <li className="nav-item">
