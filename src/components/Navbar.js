@@ -106,7 +106,7 @@ function Navbar(props) {
               placeholder="Search"
               aria-label="Search"
             />
-          </form><button className="btn btn-light" onClick={handleLogOut}>Log out</button></>:<></>}
+          </form><button className="btn btn-light my-2" onClick={handleLogOut}>Log out</button></>:<></>}
         </div>
       </div>
     </nav>
