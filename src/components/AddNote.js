@@ -29,15 +29,15 @@ const AddNote = (props) => {
             <div className="card">
                 <div className="card-body input-group">
                     <span className="input-group-text">Title</span>
-                    <textarea type="text" className="form-control" aria-label="title" id="title" name="title" placeholder={`Enter title of minimum length ${minimumLength} here.`} rows={1} onChange={onChange} minLength={minimumLength} required></textarea>
+                    <textarea type="text" className="form-control" aria-label="title" id="title" name="title" placeholder={`Enter title of minimum length ${minimumLength} here.`} rows={1} onChange={onChange} minLength={minimumLength} required style={{'zIndex':0}}></textarea>
                 </div>
                 <div className="card-body input-group">
                     <span className="input-group-text">Description</span>
-                    <textarea type="text" className="form-control" aria-label="description" id="description" name="description" placeholder={`Enter description of minimum length ${minimumLength} here.`} rows={minimumLength} onChange={onChange} minLength={minimumLength} required></textarea>
+                    <textarea type="text" className="form-control" aria-label="description" id="description" name="description" placeholder={`Enter description of minimum length ${minimumLength} here.`} rows={minimumLength} onChange={onChange} minLength={minimumLength} required style={{'zIndex':0}}></textarea>
                 </div> 
                 <div className="card-body input-group">
                     <span className="input-group-text">Tag</span>
-                    <textarea type="text" className="form-control" aria-label="tag" id="tag" name="tag" placeholder="Enter tag here." rows={1} onChange={onChange}></textarea>
+                    <textarea type="text" className="form-control" aria-label="tag" id="tag" name="tag" placeholder="Enter tag here." rows={1} onChange={onChange} style={{'zIndex':0}}></textarea>
                 </div> 
                 <div className="card-body"><button disabled = {note.title.length < 5 || note.description.length < 5} type="submit" className="my-2 btn btn-primary" id="addBtn" onClick={handleClick}>Add Note</button></div>
             </div> 
