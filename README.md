@@ -2,5 +2,5 @@ iNotebook-va is the notebook on the cloud, that is it can be used to store any n
 Users can log in to their respective accounts and add, delete or update notes at any time.
 A user account is made hack free by using JWT authentication along with salt and pepper by for an extra security level.
 
-**Redirected to the repository is vinay0703/inotebook-v-a and hosted from the same repository.**
+**Redirected to the repository is vinay0703/inotebook-backend and hosted from the same repository.**
 Website hosted in heroku **link:** https://inotebook-v-a.herokuapp.com/
