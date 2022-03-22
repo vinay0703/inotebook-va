@@ -25,7 +25,7 @@ export default function LoginModal(props) {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-type':'application/json',
+        'Content-Type':'application/json',
       },
       body: JSON.stringify({email:credentials.email, password:credentials.password})
     });

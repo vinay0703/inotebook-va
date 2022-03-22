@@ -42,7 +42,7 @@ export default function SignUpModal(props) {
     const response = await fetch(url, {
       method: 'POST',
       headers:{
-        'Content-type':'application/json'
+        'Content-Type':'application/json'
       },
       body: JSON.stringify({name:credentials.name, email:credentials.email, password:credentials.password})
     });
