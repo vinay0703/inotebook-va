@@ -5,7 +5,7 @@ const path = require('path');
 
 connectToMongo();
 const app = express();
-const port = 5000;
+const port = process.env.port || 5000;
 
 //To avoid cors error while fetch
 app.use(cors());
@@ -20,6 +20,7 @@ app.use('/api/contact', require('./routes/contact'));
 
 //For any other path redirect to index.html
 app.get('/*', (req, res)=>{
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
