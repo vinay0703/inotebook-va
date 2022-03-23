@@ -46,7 +46,7 @@ function Navbar(props) {
                 aria-current="page"
                 to={!localStorage.getItem('token')?"/":"notes"}
               >
-                NewHome
+                Home
               </Link>
             </li>
             <li className="nav-item">
